@@ -1,0 +1,26 @@
+# UPRAVTE SOUBOR .replit NA TYTO HODNOTY
+
+modules = ["nodejs-20", "web", "postgresql-16"]
+run = "./run.sh"
+hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+protocol = "http"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 8080
+externalPort = 8080
